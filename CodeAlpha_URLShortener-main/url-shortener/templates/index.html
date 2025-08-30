@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flask URL Shortener</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔗 Simple URL Shortener</h1>
+      {% if not_found %}
+        <div class="alert">No link found for code: <code>{{ code }}</code></div>
+      {% endif %}
+      <form id="shorten-form">
+        <input
+          type="url"
+          id="long-url"
+          name="url"
+          placeholder="https://example.com/very/long/link"
+          required
+        />
+        <button type="submit">Shorten</button>
+      </form>
+
+      <div id="result" class="hidden">
+        <p>Your short URL:</p>
+        <a id="short-url" href="#" target="_blank" rel="noopener"></a>
+        <button id="copy-btn">Copy</button>
+        <span id="copied" class="hidden">Copied!</span>
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
